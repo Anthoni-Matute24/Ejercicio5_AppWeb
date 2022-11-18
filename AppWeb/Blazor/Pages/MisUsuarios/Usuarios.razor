@@ -1,0 +1,71 @@
+﻿@page "/Usuarios"
+@using Entidades;
+
+
+<AuthorizeView Roles="Administrador">
+    <Authorized Context="AuthenticationState">
+
+        <h2>Lista de Usuarios</h2>
+
+        @if (lista == null)
+        {
+            <p>No existen usuarios en el sistema</p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Está Activo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Usuario user in lista)
+                    {
+                        if (user.Rol == "Administrador")
+                        {
+                            <tr style="background-color:seashell;">
+                                <td>@user.Codigo</td>
+                                <td>@user.Nombre</td>
+                                <td>@user.Correo</td>
+                                <td>@user.Rol</td>
+                                @if (user.EstaActivo)
+                                {
+                                    <td><span class="oi oi-circle-check" style="color:green;"></span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="oi oi-circle-x" style="color:red;"></span></td>
+                                }
+
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>@user.Codigo</td>
+                                <td>@user.Nombre</td>
+                                <td>@user.Correo</td>
+                                <td>@user.Rol</td>
+                                @if (user.EstaActivo)
+                                {
+                                    <td><span class="oi oi-circle-check" style="color:green;"></span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="oi oi-circle-x" style="color:red;"></span></td>
+                                }
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+
+    </Authorized>
+</AuthorizeView>

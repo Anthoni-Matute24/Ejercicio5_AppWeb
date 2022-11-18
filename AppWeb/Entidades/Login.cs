@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Login
     {
-
+        // Propiedades
+        public string Codigo { get; set; }
+        public string Clave { get; set; }
     }
 }

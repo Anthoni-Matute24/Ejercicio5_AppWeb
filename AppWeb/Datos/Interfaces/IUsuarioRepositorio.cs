@@ -1,8 +1,8 @@
 ﻿using Entidades;
 
-namespace Blazor.Interfaces
+namespace Datos.Interfaces
 {
-    public interface IUsuarioServicio
+    public interface IUsuarioRepositorio
     {
         // Métodos
         Task<Usuario> GetPorCodigo(string codigo); // Devuelve un usuario
